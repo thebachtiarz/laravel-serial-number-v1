@@ -1,0 +1,36 @@
+{
+    "name": "thebachtiarz/laravel-serial-number-v1",
+    "description": "A Serial Number Middleware for Laravel Project v1",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "thebachtiarz",
+        "serial-number"
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "laravel/framework": "^8.12",
+        "thebachtiarz/laravel-toolkit-v1": "^1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TheBachtiarz\\SerialNumber\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "thebachtiarz",
+            "email": "bachtiarptibinlppnri2417@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/thebachtiarz/laravel-serial-number-v1/issues",
+        "source": "https://github.com/thebachtiarz/laravel-serial-number-v1"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
