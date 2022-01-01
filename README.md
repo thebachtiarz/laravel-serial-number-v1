@@ -14,6 +14,15 @@ composer config repositories.thebachtiarz/laravel-serial-number-v1 git git@githu
 composer require thebachtiarz/laravel-serial-number-v1
 ```
 
+- register the Middleware into -> **app/Http/Kernel.php**
+```bash
+protected $routeMiddleware = [
+    ...
+    'apiKeyService' => \TheBachtiarz\SerialNumber\Middleware\ApiKeyAccessMiddleware::class,
+    
+];
+```
+
 -------
 ### Feature
 
