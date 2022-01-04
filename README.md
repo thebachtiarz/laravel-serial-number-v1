@@ -23,6 +23,14 @@ protected $routeMiddleware = [
 ];
 ```
 
+- register the REST API into -> **app/Providers/RouteServiceProvider.php**
+```bash
+Route::prefix('thebachtiarz')
+    ->middleware(['api'])
+    ->namespace($this->namespace)
+    ->group(tbsnrouteapi());
+```
+
 -------
 ### Feature
 
