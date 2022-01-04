@@ -2,12 +2,19 @@
 
 namespace TheBachtiarz\SerialNumber\Controllers;
 
+use Illuminate\Http\{Request, Response};
 use TheBachtiarz\SerialNumber\Service\ApiKeyCreateService;
 
 class RegisterDeviceController
 {
-    public function register(string $serialNumber, string $device): array
+    /**
+     * register new device
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function register(Request $request)
     {
-        return ApiKeyCreateService::create($serialNumber, $device);
+        return ApiKeyCreateService::create($request->lisence, $request->device);
     }
 }
