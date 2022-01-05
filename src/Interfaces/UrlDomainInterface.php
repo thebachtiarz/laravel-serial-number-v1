@@ -11,7 +11,8 @@ class UrlDomainInterface
 
     public const URL_DOMAIN_TRANSACTION_AVAILABLE = [
         'create' => self::URL_DOMAIN_CREATE_API_KEY,
-        'access' => self::URL_DOMAIN_ACCESS_API_KEY
+        'access' => self::URL_DOMAIN_ACCESS_API_KEY,
+        'pair' => self::URL_DOMAIN_PAIR_API_KEY
     ];
 
     public const URL_DOMAIN_BASE_SECURE = "https://serialnumber.thebachtiarz.com/";
@@ -21,6 +22,7 @@ class UrlDomainInterface
 
     public const URL_DOMAIN_CREATE_API_KEY = "consumer/create";
     public const URL_DOMAIN_ACCESS_API_KEY = "consumer/access";
+    public const URL_DOMAIN_PAIR_API_KEY = "consumer/pair";
 
     public const URL_DOMAIN_API_KEY_NAME = "x-app-api-key";
 }

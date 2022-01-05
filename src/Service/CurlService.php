@@ -91,7 +91,7 @@ class CurlService
      */
     private static function urlResolver(): string
     {
-        $_baseDomain = self::baseDomainResolver(true);
+        $_baseDomain = self::baseDomainResolver(tbsnconfig('secure_url'));
 
         $_prefix = UrlDomainInterface::URL_PREFIX_VERSION_INFO;
 

@@ -3,9 +3,9 @@
 namespace TheBachtiarz\SerialNumber\Controllers;
 
 use Illuminate\Http\{Request, Response};
-use TheBachtiarz\SerialNumber\Service\ApiKeyCreateService;
+use TheBachtiarz\SerialNumber\Service\{ApiKeyCreateService, ApiKeyPairService};
 
-class RegisterDeviceController
+class LisenceController
 {
     /**
      * register new device
@@ -16,5 +16,16 @@ class RegisterDeviceController
     public function register(Request $request)
     {
         return ApiKeyCreateService::create($request->lisence, $request->device);
+    }
+
+    /**
+     * pair existing api key
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function pair(Request $request)
+    {
+        return ApiKeyPairService::pair($request->lisence, $request->device);
     }
 }

@@ -3,7 +3,7 @@
     "description": "A Serial Number Middleware for Laravel Project v1",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "keywords": [
         "laravel",
         "thebachtiarz",
@@ -31,6 +31,13 @@
         "files": [
             "helper/helper.php"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TheBachtiarz\\SerialNumber\\SerialNumberServiceProvider"
+            ]
+        }
     },
     "config": {
         "sort-packages": true
