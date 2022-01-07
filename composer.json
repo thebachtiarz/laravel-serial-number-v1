@@ -3,7 +3,7 @@
     "description": "A Serial Number Middleware for Laravel Project v1",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "keywords": [
         "laravel",
         "thebachtiarz",

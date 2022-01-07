@@ -18,20 +18,24 @@ class ApiKeyAccessMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->header(UrlDomainInterface::URL_DOMAIN_API_KEY_NAME)) {
-            // ?: if env status is production
-            if (config('app.env') === 'production') {
-                // ?: check into api key domain, if key is exist and active, then request can next
-                $_response = ApiKeyAccessService::access($request->header(UrlDomainInterface::URL_DOMAIN_API_KEY_NAME));
+        // ?: if env status is production
+        if (config('app.env') === 'production') {
+            $_apiKeyHeader = $request->header(UrlDomainInterface::URL_DOMAIN_API_KEY_NAME);
 
+            if ($_apiKeyHeader) {
+                // ?: check into api key domain
+                $_response = ApiKeyAccessService::access($_apiKeyHeader);
+
+                // ?: if key is exist and active, then request can next
                 return $_response['status']
                     ? $next($request)
                     : response()->json($_response['message'], 403);
             }
 
-            // ?: if env status is not production
-            return $next($request);
+            abort(403, 'YOU NEED AN API KEY');
         }
-        abort(403, 'YOU NEED AN API KEY');
+
+        // ?: if env status is not production
+        return $next($request);
     }
 }
