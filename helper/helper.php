@@ -24,5 +24,5 @@ function tbsnconfig(?string $keyName = null)
  */
 function tbsnrouteapi(): string
 {
-    return base_path('vendor/thebachtiarz/laravel-serial-number-v1/src/routes/sn_api.php');
+    return base_path('vendor/thebachtiarz/laravel-serial-number-v1/src/routes/lisence_api.php');
 }

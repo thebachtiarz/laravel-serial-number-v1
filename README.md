@@ -3,6 +3,9 @@
 
 -------
 
+### Requires
+- [thebachtiarz/laravel-toolkit-v1](https://github.com/thebachtiarz/laravel-toolkit-v1/)
+
 ### Installation
 - composer config (only if you have access)
 ```bash
@@ -25,7 +28,7 @@ protected $routeMiddleware = [
 
 - register the REST API into -> **app/Providers/RouteServiceProvider.php**
 ```bash
-Route::prefix('thebachtiarz')
+Route::prefix(tbtoolkitconfig('app_prefix'))
     ->middleware(['api'])
     ->namespace($this->namespace)
     ->group(tbsnrouteapi());

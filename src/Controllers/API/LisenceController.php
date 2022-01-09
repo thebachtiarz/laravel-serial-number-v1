@@ -1,11 +1,12 @@
 <?php
 
-namespace TheBachtiarz\SerialNumber\Controllers;
+namespace TheBachtiarz\SerialNumber\Controllers\API;
 
 use Illuminate\Http\{Request, Response};
+use TheBachtiarz\SerialNumber\Controllers\Controller;
 use TheBachtiarz\SerialNumber\Service\{ApiKeyCreateService, ApiKeyPairService};
 
-class LisenceController
+class LisenceController extends Controller
 {
     /**
      * register new device
