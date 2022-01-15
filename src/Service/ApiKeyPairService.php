@@ -2,6 +2,8 @@
 
 namespace TheBachtiarz\SerialNumber\Service;
 
+use TheBachtiarz\SerialNumber\Interfaces\UrlDomainInterface;
+
 class ApiKeyPairService
 {
     /**
@@ -13,6 +15,6 @@ class ApiKeyPairService
      */
     public static function pair(string $apiKey, string $device): array
     {
-        return CurlService::setUrl('pair')->setData(['lisence' => $apiKey, 'device' => $device])->post();
+        return CurlService::setUrl(UrlDomainInterface::URL_DOMAIN_PAIR_API_KEY_NAME)->setData(['lisence' => $apiKey, 'device' => $device])->post();
     }
 }

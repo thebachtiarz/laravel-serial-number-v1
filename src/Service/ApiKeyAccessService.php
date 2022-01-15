@@ -2,6 +2,8 @@
 
 namespace TheBachtiarz\SerialNumber\Service;
 
+use TheBachtiarz\SerialNumber\Interfaces\UrlDomainInterface;
+
 class ApiKeyAccessService
 {
     /**
@@ -12,6 +14,6 @@ class ApiKeyAccessService
      */
     public static function access(string $apiKey): array
     {
-        return CurlService::setUrl('access')->setData(['lisence' => $apiKey])->post();
+        return CurlService::setUrl(UrlDomainInterface::URL_DOMAIN_ACCESS_API_KEY_NAME)->setData(['lisence' => $apiKey])->post();
     }
 }

@@ -3,7 +3,7 @@
 namespace TheBachtiarz\SerialNumber\Service;
 
 use Illuminate\Http\Client\PendingRequest;
-use Illuminate\Support\Facades\Http as CURL;
+use Illuminate\Support\Facades\{Http as CURL, Log};
 use TheBachtiarz\SerialNumber\Interfaces\UrlDomainInterface;
 use TheBachtiarz\Toolkit\Helper\App\Converter\ArrayHelper;
 
@@ -54,6 +54,8 @@ class CurlService
             $result['status'] = $_result['status'] === "success";
             $result['message'] = $_result['message'];
         } catch (\Throwable $th) {
+            Log::channel('error')->warning($th->getMessage());
+
             $result['message'] = $th->getMessage();
         } finally {
             return $result;
