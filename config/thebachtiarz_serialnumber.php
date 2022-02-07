@@ -9,5 +9,17 @@ return [
     | Use secure url for serial number domain.
     |
     */
-    'secure_url' => true
+    'secure_url' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Middleware Service Status
+    |--------------------------------------------------------------------------
+    |
+    | Set enable/disable for middleware service.
+    |
+    | ! this config is mutable !
+    |
+    */
+    'middleware_status' => true
 ];

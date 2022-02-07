@@ -19,7 +19,7 @@ class ApiKeyAccessMiddleware
     public function handle(Request $request, Closure $next)
     {
         // ?: if env status is production
-        if (config('app.env') === 'production') {
+        if ((config('app.env') === 'production') && tbsnconfig('middleware_status')) {
             $_apiKeyHeader = $request->header(UrlDomainInterface::URL_DOMAIN_API_KEY_NAME);
 
             if ($_apiKeyHeader) {
