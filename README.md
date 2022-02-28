@@ -6,7 +6,7 @@
 ### Requires
 - [thebachtiarz/laravel-toolkit-v1](https://github.com/thebachtiarz/laravel-toolkit-v1/)
 
-### Installation
+## Installation
 - composer config (only if you have access)
 ```bash
 composer config repositories.thebachtiarz/laravel-serial-number-v1 git git@github.com:thebachtiarz/laravel-serial-number-v1.git
@@ -14,7 +14,11 @@ composer config repositories.thebachtiarz/laravel-serial-number-v1 git git@githu
 
 - install repository
 ```bash
-composer require thebachtiarz/laravel-serial-number-v1
+Laravel 9:
+composer require thebachtiarz/laravel-serial-number-v1:^2.0
+
+Laravel 8:
+composer require thebachtiarz/laravel-serial-number-v1:^1.0
 ```
 
 - register the Middleware into -> **app/Http/Kernel.php**
@@ -35,7 +39,7 @@ Route::prefix(tbtoolkitconfig('app_prefix'))
 ```
 
 -------
-### Feature
+## Feature
 
 > sek males nulis cak :v
 -------
