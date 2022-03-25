@@ -13,13 +13,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Middleware Service Status
+    | Service Status
     |--------------------------------------------------------------------------
     |
-    | Set enable/disable for middleware service.
+    | Set enable/disable for service service.
     |
     | ! this config is mutable !
     |
     */
-    'middleware_status' => true
+    'service_status' => true
 ];

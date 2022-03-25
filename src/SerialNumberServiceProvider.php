@@ -3,7 +3,7 @@
 namespace TheBachtiarz\SerialNumber;
 
 use Illuminate\Support\ServiceProvider;
-use TheBachtiarz\SerialNumber\Console\Commands\MiddlewareStatusCommand;
+use TheBachtiarz\SerialNumber\Console\Commands\ServiceStatusCommand;
 use TheBachtiarz\SerialNumber\Interfaces\ConfigInterface;
 
 class SerialNumberServiceProvider extends ServiceProvider
@@ -17,7 +17,7 @@ class SerialNumberServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                MiddlewareStatusCommand::class
+                ServiceStatusCommand::class
             ]);
         }
     }

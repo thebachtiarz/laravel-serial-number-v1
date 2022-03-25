@@ -4,8 +4,8 @@ namespace TheBachtiarz\SerialNumber\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use TheBachtiarz\SerialNumber\Cache\CacheService;
 use TheBachtiarz\SerialNumber\Interfaces\UrlDomainInterface;
-use TheBachtiarz\SerialNumber\Service\ApiKeyAccessService;
 
 class ApiKeyAccessMiddleware
 {
@@ -19,12 +19,12 @@ class ApiKeyAccessMiddleware
     public function handle(Request $request, Closure $next)
     {
         // ?: if env status is production
-        if ((config('app.env') === 'production') && tbsnconfig('middleware_status')) {
+        if ((config('app.env') === 'production') && tbsnconfig('service_status')) {
             $_apiKeyHeader = $request->header(UrlDomainInterface::URL_DOMAIN_API_KEY_NAME);
 
             if ($_apiKeyHeader) {
                 // ?: check into api key domain
-                $_response = ApiKeyAccessService::access($_apiKeyHeader);
+                $_response = CacheService::setApiKey($_apiKeyHeader)->access();
 
                 // ?: if key is exist and active, then request can next
                 return $_response['status']
@@ -35,7 +35,7 @@ class ApiKeyAccessMiddleware
             abort(403, 'YOU NEED AN API KEY');
         }
 
-        // ?: if env status is not production
+        // ?: if env status is not production or service is disabled.
         return $next($request);
     }
 }

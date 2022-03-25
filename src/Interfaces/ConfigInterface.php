@@ -8,5 +8,7 @@ interface ConfigInterface
 
     public const SERIAL_NUMBER_CONFIG_PREFIX_NAME = "serial_number";
 
-    public const SERIAL_NUMBER_CONFIG_MIDDLEWARE_STATUS_CODE_NAME = "middleware_status";
+    public const SERIAL_NUMBER_CONFIG_SERVICE_STATUS_NAME = "service_status";
+
+    public const SERIAL_NUMBER_CACHE_PREFIX_NAME = "SnChsaT";
 }
