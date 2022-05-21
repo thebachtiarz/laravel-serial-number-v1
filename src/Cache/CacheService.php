@@ -6,10 +6,11 @@ use TheBachtiarz\SerialNumber\Interfaces\ConfigInterface;
 use TheBachtiarz\SerialNumber\Service\ApiKeyAccessService;
 use TheBachtiarz\Toolkit\Cache\Service\Cache;
 use TheBachtiarz\Toolkit\Helper\App\Converter\ArrayHelper;
+use TheBachtiarz\Toolkit\Helper\App\Encryptor\EncryptorHelper;
 
 class CacheService
 {
-    use ArrayHelper;
+    use ArrayHelper, EncryptorHelper;
 
     /**
      * api key
@@ -60,7 +61,7 @@ class CacheService
         try {
             throw_if(!Cache::has(ConfigInterface::SERIAL_NUMBER_CACHE_PREFIX_NAME), 'Exception', "Cache not found");
 
-            $_cacheData = Cache::get(ConfigInterface::SERIAL_NUMBER_CACHE_PREFIX_NAME);
+            $_cacheData = self::decrypt(Cache::get(ConfigInterface::SERIAL_NUMBER_CACHE_PREFIX_NAME));
 
             foreach ($_cacheData as $apiKey => $status) {
                 if ($apiKey === self::$apiKey) {
@@ -114,7 +115,7 @@ class CacheService
     {
         $_cacheInit = [];
 
-        Cache::set(ConfigInterface::SERIAL_NUMBER_CACHE_PREFIX_NAME, $_cacheInit);
+        Cache::set(ConfigInterface::SERIAL_NUMBER_CACHE_PREFIX_NAME, self::simpleEncrypt($_cacheInit));
     }
 
     /**
@@ -125,11 +126,11 @@ class CacheService
      */
     private static function updateCacheData(array $apiKeyinfo): void
     {
-        $_currentCacheData = Cache::get(ConfigInterface::SERIAL_NUMBER_CACHE_PREFIX_NAME);
+        $_currentCacheData = self::decrypt(Cache::get(ConfigInterface::SERIAL_NUMBER_CACHE_PREFIX_NAME));
 
         $_currentCacheData[key($apiKeyinfo)] = $apiKeyinfo[key($apiKeyinfo)];
 
-        Cache::set(ConfigInterface::SERIAL_NUMBER_CACHE_PREFIX_NAME, $_currentCacheData);
+        Cache::set(ConfigInterface::SERIAL_NUMBER_CACHE_PREFIX_NAME, self::simpleEncrypt($_currentCacheData));
     }
 
     // ? Setter Modules
