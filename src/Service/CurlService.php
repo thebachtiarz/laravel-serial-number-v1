@@ -12,24 +12,26 @@ class CurlService
     /**
      * base domain resolver
      *
-     * @param boolean $secure
+     * @override
+     * @param boolean $productionMode
      * @return string
      */
-    private static function baseDomainResolver(bool $secure = true): string
+    private static function baseDomainResolver(bool $productionMode = true): string
     {
-        return UrlDomainInterface::URL_DOMAIN_BASE_AVAILABLE[$secure];
+        return $productionMode ? tbsnconfig('api_url_production') : tbsnconfig('api_url_sandbox');
     }
 
     /**
      * url end point resolver
      *
+     * @override
      * @return string
      */
     private static function urlResolver(): string
     {
-        $_baseDomain = self::baseDomainResolver(tbsnconfig('secure_url'));
+        $_baseDomain = self::baseDomainResolver(tbsnconfig('is_production_mode'));
 
-        $_prefix = UrlDomainInterface::URL_PREFIX_VERSION_INFO;
+        $_prefix = tbsnconfig('api_url_prefix');
 
         $_endPoint = UrlDomainInterface::URL_DOMAIN_TRANSACTION_AVAILABLE[self::$url];
 
