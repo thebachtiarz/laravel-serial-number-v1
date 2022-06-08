@@ -9,7 +9,7 @@ use TheBachtiarz\SerialNumber\Interfaces\ConfigInterface;
 class SerialNumberServiceProvider extends ServiceProvider
 {
     /**
-     * register module serial number
+     * Register module serial number
      *
      * @return void
      */
@@ -23,7 +23,7 @@ class SerialNumberServiceProvider extends ServiceProvider
     }
 
     /**
-     * boot module serial number
+     * Boot module serial number
      *
      * @return void
      */

@@ -13,7 +13,7 @@ class CacheService
     use ArrayHelper, EncryptorHelper;
 
     /**
-     * api key
+     * Api key
      *
      * @var string
      */
@@ -21,7 +21,7 @@ class CacheService
 
     // ? Public Methods
     /**
-     * get api key access data information
+     * Get api key access data information
      *
      * @return array
      */
@@ -50,7 +50,7 @@ class CacheService
 
     // ? Private Methods
     /**
-     * check api key status in cache data
+     * Check api key status in cache data
      *
      * @return array
      */
@@ -64,7 +64,7 @@ class CacheService
             $_cacheData = self::decrypt(Cache::get(ConfigInterface::SERIAL_NUMBER_CACHE_PREFIX_NAME));
 
             foreach ($_cacheData as $apiKey => $status) {
-                if ($apiKey === self::$apiKey) {
+                if ($apiKey === static::$apiKey) {
                     $result['found'] = true;
                     $result['status'] = $status;
                     $result['message'] = sprintf("Api key is %s", ($status ? "OK" : "Expired"));
@@ -80,7 +80,7 @@ class CacheService
     }
 
     /**
-     * check api key to server
+     * Check api key to server
      *
      * @return array
      */
@@ -89,7 +89,7 @@ class CacheService
         $result = ['status' => false, 'message' => ''];
 
         try {
-            $_getApiKeyInfo = ApiKeyAccessService::access(self::$apiKey);
+            $_getApiKeyInfo = ApiKeyAccessService::access(static::$apiKey);
 
             self::updateCacheData([
                 self::$apiKey => $_getApiKeyInfo['data'] ?? false
@@ -107,7 +107,7 @@ class CacheService
     }
 
     /**
-     * init cache data
+     * Init cache data
      *
      * @return void
      */
@@ -119,7 +119,7 @@ class CacheService
     }
 
     /**
-     * update cace data
+     * Update cace data
      *
      * @param array $apiKeyinfo
      * @return void

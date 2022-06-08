@@ -9,7 +9,7 @@ use TheBachtiarz\SerialNumber\Service\{ApiKeyCreateService, ApiKeyPairService};
 class LisenceController extends Controller
 {
     /**
-     * register new device
+     * Register new device
      *
      * @param Request $request
      * @return Response
@@ -20,7 +20,7 @@ class LisenceController extends Controller
     }
 
     /**
-     * pair existing api key
+     * Pair existing api key
      *
      * @param Request $request
      * @return Response

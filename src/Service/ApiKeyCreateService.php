@@ -7,7 +7,7 @@ use TheBachtiarz\SerialNumber\Interfaces\UrlDomainInterface;
 class ApiKeyCreateService
 {
     /**
-     * register new consumer
+     * Register new consumer
      *
      * @param string $serialNumber
      * @param string $device

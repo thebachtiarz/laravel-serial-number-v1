@@ -7,7 +7,7 @@ use TheBachtiarz\SerialNumber\Interfaces\UrlDomainInterface;
 class ApiKeyPairService
 {
     /**
-     * pair existing api key
+     * Pair existing api key
      *
      * @param string $apiKey
      * @param string $device

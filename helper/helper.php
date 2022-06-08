@@ -3,12 +3,12 @@
 use TheBachtiarz\SerialNumber\Interfaces\ConfigInterface;
 
 /**
- * thebachtiarz serial number config
+ * TheBachtiarz serial number config
  *
  * @param string|null $keyName config key name | null will return all
  * @return mixed|null
  */
-function tbsnconfig(?string $keyName = null)
+function tbsnconfig(?string $keyName = null): mixed
 {
     $configName = ConfigInterface::SERIAL_NUMBER_CONFIG_NAME;
 
@@ -18,7 +18,7 @@ function tbsnconfig(?string $keyName = null)
 }
 
 /**
- * thebachtiarz serial number route api file location
+ * TheBachtiarz serial number route api file location
  *
  * @return string
  */

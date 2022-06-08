@@ -7,7 +7,7 @@ use TheBachtiarz\SerialNumber\Interfaces\UrlDomainInterface;
 class ApiKeyAccessService
 {
     /**
-     * api key hot access
+     * Api key hot access
      *
      * @param string $apiKey
      * @return array
