@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use TheBachtiarz\SerialNumber\Controllers\API\LisenceController;
+use TheBachtiarz\SerialNumber\Http\Controllers\API\LisenceController;
 
 /**
  * Route group serial-number

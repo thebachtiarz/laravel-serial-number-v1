@@ -1,9 +1,9 @@
 <?php
 
-namespace TheBachtiarz\SerialNumber\Controllers\API;
+namespace TheBachtiarz\SerialNumber\Http\Controllers\API;
 
 use Illuminate\Http\{Request, Response};
-use TheBachtiarz\SerialNumber\Controllers\Controller;
+use TheBachtiarz\SerialNumber\Http\Controllers\Controller;
 use TheBachtiarz\SerialNumber\Service\{ApiKeyCreateService, ApiKeyPairService};
 
 class LisenceController extends Controller
